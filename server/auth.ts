@@ -99,9 +99,8 @@ export function setupAuth(app: Express) {
       const user = await storage.createUser({
         username: req.body.username,
         name: req.body.name,
-        phone_number: req.body.phone_number,
-        password: hashedPassword,
-        green_score: 0
+        phoneNumber: req.body.phoneNumber,
+        password: hashedPassword
       });
 
       req.login(user, (err) => {
