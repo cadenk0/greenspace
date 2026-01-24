@@ -47,7 +47,6 @@ export default function LeaderboardPage() {
             {/* 1st Place */}
             <div className="flex flex-col items-center -mt-8">
               <div className="relative">
-                <Trophy className="absolute -top-6 left-1/2 -translate-x-1/2 w-8 h-8 text-yellow-500 fill-yellow-500 animate-bounce" />
                 <div className="w-24 h-24 rounded-full border-4 border-yellow-400 overflow-hidden bg-muted mb-2 shadow-xl ring-4 ring-yellow-400/20">
                   <div className="w-full h-full flex items-center justify-center text-3xl font-bold bg-white text-yellow-600">
                     {sortedUsers[0].username.substring(0, 2).toUpperCase()}

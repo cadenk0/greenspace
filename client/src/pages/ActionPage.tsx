@@ -145,18 +145,14 @@ export default function ActionPage() {
               {createActivity.isPending ? (
                 <>
                   <Loader2 className="w-6 h-6 animate-spin" />
-                  Analyzing Activity...
+                  Uploading
                 </>
               ) : (
                 <>
-                  <Sparkles className="w-5 h-5" />
-                  Verify & Earn Points
+                  Show off your Green
                 </>
               )}
             </button>
-            <p className="text-center text-xs text-muted-foreground mt-4">
-              AI will analyze your photo to verify the activity.
-            </p>
           </div>
         </form>
       </main>

@@ -46,8 +46,12 @@ export default function AuthPage() {
 
       <div className="w-full max-w-md relative z-10">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-green-600 shadow-lg shadow-primary/20 mb-4">
-            <Leaf className="w-8 h-8 text-white" />
+          <div className="inline-flex items-center justify-center w-16 h-16">
+            <img
+              src="/GreenspaceLogo.png"
+              alt="Greenspace Logo"
+              className="w-15 h-15 object-contain"
+            />
           </div>
           <h1 className="text-4xl font-display font-bold text-foreground mb-2 tracking-tight">
             Greenspace
