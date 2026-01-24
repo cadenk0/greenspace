@@ -95,7 +95,9 @@ export default function AuthPage() {
                 className="space-y-4"
               >
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground ml-1">Username</label>
+                  <label className="text-sm font-medium text-foreground ml-1">
+                    Username
+                  </label>
                   <input
                     {...loginForm.register("username")}
                     className="w-full px-4 py-3 rounded-xl bg-muted/30 border-2 border-transparent focus:border-primary/20 focus:bg-white focus:outline-none transition-all duration-200"
@@ -108,7 +110,9 @@ export default function AuthPage() {
                   )}
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground ml-1">Password</label>
+                  <label className="text-sm font-medium text-foreground ml-1">
+                    Password
+                  </label>
                   <input
                     type="password"
                     {...loginForm.register("password")}
@@ -146,7 +150,9 @@ export default function AuthPage() {
                 className="space-y-4"
               >
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground ml-1">Full Name</label>
+                  <label className="text-sm font-medium text-foreground ml-1">
+                    Full Name
+                  </label>
                   <input
                     {...registerForm.register("name")}
                     className="w-full px-4 py-3 rounded-xl bg-muted/30 border-2 border-transparent focus:border-primary/20 focus:bg-white focus:outline-none transition-all duration-200"
@@ -160,7 +166,9 @@ export default function AuthPage() {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground ml-1">Username</label>
+                    <label className="text-sm font-medium text-foreground ml-1">
+                      Username
+                    </label>
                     <input
                       {...registerForm.register("username")}
                       className="w-full px-4 py-3 rounded-xl bg-muted/30 border-2 border-transparent focus:border-primary/20 focus:bg-white focus:outline-none transition-all duration-200"
@@ -173,7 +181,9 @@ export default function AuthPage() {
                     )}
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground ml-1">Phone</label>
+                    <label className="text-sm font-medium text-foreground ml-1">
+                      Phone
+                    </label>
                     <input
                       {...registerForm.register("phoneNumber")}
                       className="w-full px-4 py-3 rounded-xl bg-muted/30 border-2 border-transparent focus:border-primary/20 focus:bg-white focus:outline-none transition-all duration-200"
@@ -187,7 +197,9 @@ export default function AuthPage() {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground ml-1">Password</label>
+                  <label className="text-sm font-medium text-foreground ml-1">
+                    Password
+                  </label>
                   <input
                     type="password"
                     {...registerForm.register("password")}

@@ -42,7 +42,7 @@ export async function registerRoutes(
       const prompt = `
         Analyze this image. Does it show a specific, verifiable green/eco-friendly activity being performed? 
         If yes, describe it briefly and award a point score between 10 and 50 based on impact and effort.
-        If no (or if it's just a generic nature photo without action), score 0.
+        If no (or if it's just a generic nature photo without action), score 5.
         
         Return valid JSON only:
         { "isGreen": boolean, "description": string, "points": number }

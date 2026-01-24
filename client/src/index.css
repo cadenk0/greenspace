@@ -5,8 +5,8 @@
 @tailwind utilities;
 
 :root {
-  --font-display: 'Fredoka', sans-serif;
-  --font-body: 'Nunito', sans-serif;
+  --font-display: 'Ubuntu', sans-serif;
+  --font-body: 'Ysabeau', sans-serif;
 
   /* HSL Colors - Nature Inspired Palette */
   --background: 140 30% 98%;

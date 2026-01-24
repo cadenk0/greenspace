@@ -40,6 +40,8 @@ export function useLogin() {
     onSuccess: (user) => {
       queryClient.setQueryData([api.auth.me.path], user);
       toast({ title: "Welcome back!", description: `Logged in as ${user.username}` });
+      // redirect to home page
+      window.location.href = "/";
     },
     onError: (error) => {
       toast({ title: "Login failed", description: error.message, variant: "destructive" });

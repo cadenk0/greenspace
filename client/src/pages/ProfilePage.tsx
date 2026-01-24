@@ -17,7 +17,9 @@ export default function ProfilePage() {
       <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-md border-b border-border/50 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2 text-primary">
           <Leaf className="w-6 h-6 fill-primary" />
-          <span className="font-display font-bold text-xl tracking-tight">Greenspace</span>
+          <span className="font-display font-bold text-xl tracking-tight">
+            Greenspace
+          </span>
         </div>
         <button
           onClick={() => logoutMutation.mutate()}
@@ -36,14 +38,16 @@ export default function ProfilePage() {
           </div>
           <div>
             <h1 className="text-2xl font-display font-bold text-foreground">
-              Hello, {user.name.split(' ')[0]}!
+              Hello, {user.name.split(" ")[0]}!
             </h1>
-            <p className="text-muted-foreground font-medium">@{user.username}</p>
+            <p className="text-muted-foreground font-medium">
+              @{user.username}
+            </p>
           </div>
         </section>
 
         {/* Stats */}
-        <motion.section 
+        <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="grid grid-cols-2 gap-4"
@@ -57,7 +61,7 @@ export default function ProfilePage() {
           />
           <StatCard
             label="Actions"
-            value="12" 
+            value="12"
             icon={<Trophy className="w-24 h-24 text-accent" />}
           />
         </motion.section>
