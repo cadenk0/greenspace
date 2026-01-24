@@ -9,7 +9,6 @@ export default function LeaderboardPage() {
   const { data: users, isLoading } = useLeaderboard();
   const { data: currentUser } = useUser();
 
-  // Sort by score descending (API should handle this, but safe to ensure)
   const sortedUsers = users?.sort((a, b) => b.greenScore - a.greenScore);
 
   const getRankIcon = (rank: number) => {
@@ -39,7 +38,9 @@ export default function LeaderboardPage() {
             className="w-15 h-15 object-contain"
           />
         </div>
-        <h1 className="absolute left-1/2 -translate-x-1/2 text-xl font-display font-bold">Global Rankings</h1>
+        <h1 className="absolute left-1/2 -translate-x-1/2 text-xl font-display font-bold">
+          Georgetown Community Leaderboard
+        </h1>
       </header>
 
       <main className="max-w-md mx-auto p-4 sm:p-6 space-y-6">

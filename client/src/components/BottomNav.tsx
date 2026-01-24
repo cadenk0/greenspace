@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Home, Trophy, Camera, User } from "lucide-react";
+import { Home, Trophy, Camera, User, Trees } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function BottomNav() {
@@ -9,6 +9,7 @@ export function BottomNav() {
     { href: "/", icon: User, label: "Profile" },
     { href: "/action", icon: Camera, label: "Action" },
     { href: "/leaderboard", icon: Trophy, label: "Leaderboard" },
+    { href: "/community", icon: Trees, label: "Community" },
   ];
 
   return (
@@ -23,13 +24,13 @@ export function BottomNav() {
                   "flex flex-col items-center justify-center space-y-1 w-16 py-2 rounded-xl transition-all duration-200 cursor-pointer",
                   isActive
                     ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50",
                 )}
               >
                 <item.icon
                   className={cn(
                     "w-6 h-6 transition-transform duration-200",
-                    isActive && "scale-110"
+                    isActive && "scale-110",
                   )}
                   strokeWidth={isActive ? 2.5 : 2}
                 />
