@@ -1,3 +1,8 @@
+/**
+ * index.ts
+ *
+ * This is the basic entry point for our server to start up.
+ */
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";

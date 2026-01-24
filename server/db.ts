@@ -1,3 +1,8 @@
+/**
+ * db.ts
+ *
+ * Creates a database connection pool and exports a drizzle instance.
+ */
 import { drizzle } from "drizzle-orm/node-postgres";
 import pg from "pg";
 import * as schema from "@shared/schema";

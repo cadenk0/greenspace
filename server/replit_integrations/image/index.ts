@@ -1,3 +1,2 @@
-export { registerImageRoutes } from "./routes";
-export { ai, generateImage } from "./client";
-
+// This file is literally just to export the client program.
+export { ai } from "./client";

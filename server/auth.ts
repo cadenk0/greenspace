@@ -1,7 +1,7 @@
 /**
  * auth.ts
  *
- * This file contains authentication logic for the server.
+ * Handles authentication routes and session creation with Passport.
  */
 import passport from "passport";
 import { Strategy as LocalStrategy } from "passport-local";

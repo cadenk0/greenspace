@@ -1,3 +1,9 @@
+/**
+ * storage.ts
+ *
+ * Defines an interface and implementation for storing and retrieving data
+ * from integrated database.
+ */
 import { users, activities, type User, type InsertUser, type Activity, type InsertActivity } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc, sql } from "drizzle-orm";
