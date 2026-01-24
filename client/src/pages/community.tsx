@@ -1,14 +1,12 @@
+import { useAllActivities } from "@/hooks/use-activities";
 import { Link } from "wouter";
 import { Leaf, Users, Heart } from "lucide-react";
 
-const photos = [
-  { id: 1, src: "https://picsum.photos/400?random=1", likes: 124 },
-  { id: 2, src: "https://picsum.photos/400?random=2", likes: 89 },
-  { id: 3, src: "https://picsum.photos/400?random=3", likes: 203 },
-  { id: 4, src: "https://picsum.photos/400?random=4", likes: 56 },
-  { id: 5, src: "https://picsum.photos/400?random=5", likes: 311 },
-  { id: 6, src: "https://picsum.photos/400?random=6", likes: 77 },
-];
+//console.log(useAllActivities().data);
+// we should probably turn this into a use function like the other fetch requests.
+const res = await fetch("/api/all-activities", { credentials: "include" });
+let activities = await res.json();
+console.log(activities);
 
 export default function Community() {
   return (
@@ -40,23 +38,30 @@ export default function Community() {
 
         {/* Photo Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-          {photos.map((photo) => (
+          {activities.map((activity) => (
             <div
-              key={photo.id}
-              className="group relative overflow-hidden rounded-2xl border border-border/50 bg-card"
+              key={activity.id}
+              className="group relative overflow-hidden rounded-2xl border border-border/50 bg-card flex flex-col"
             >
-              <img
-                src={photo.src}
-                alt="Community post"
-                className="w-full h-full object-cover aspect-square transition-transform duration-300 group-hover:scale-105"
-              />
+              <div className="relative">
+                <img
+                  src={activity.imageUrl}
+                  alt="Community post"
+                  className="w-full h-full object-cover aspect-square transition-transform duration-300 group-hover:scale-105"
+                />
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <div className="flex items-center gap-2 text-white font-bold">
-                  <Heart className="w-5 h-5 fill-white" />
-                  {photo.likes}
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <div className="flex items-center gap-2 text-white font-bold">
+                    <Heart className="w-5 h-5 fill-white" />
+                    10
+                  </div>
                 </div>
+              </div>
+
+              {/* Caption */}
+              <div className="px-3 py-2 text-sm text-center text-muted-foreground">
+                {activity.caption}
               </div>
             </div>
           ))}

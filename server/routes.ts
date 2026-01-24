@@ -35,6 +35,13 @@ export async function registerRoutes(
     res.json(activities);
   });
 
+  // TODO we should really add this path to the routes.ts file
+  // But for now it's hardcoded here.
+  app.get("/api/all-activities", async (req, res) => {
+    const activities = await storage.getAllActivities();
+    res.json(activities);
+  });
+
   app.post(
     api.activities.create.path,
     upload.single("image"),

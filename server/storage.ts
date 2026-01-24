@@ -44,6 +44,10 @@ export class DatabaseStorage implements IStorage {
     return db.select().from(activities).where(eq(activities.userId, userId)).orderBy(desc(activities.createdAt));
   }
 
+  async getAllActivities(): Promise<Activity[]> {
+    return db.select().from(activities).orderBy(desc(activities.createdAt));
+  }
+
   async getLeaderboard(): Promise<User[]> {
     return db.select().from(users).orderBy(desc(users.greenScore)).limit(50);
   }
