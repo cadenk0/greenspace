@@ -1,3 +1,9 @@
+/**
+ * storage.ts
+ *
+ * Defines an interface and implementation for storing and retrieving data
+ * from integrated database.
+ */
 import { users, activities, type User, type InsertUser, type Activity, type InsertActivity } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc, sql } from "drizzle-orm";
@@ -36,6 +42,10 @@ export class DatabaseStorage implements IStorage {
 
   async getUserActivities(userId: number): Promise<Activity[]> {
     return db.select().from(activities).where(eq(activities.userId, userId)).orderBy(desc(activities.createdAt));
+  }
+
+  async getAllActivities(): Promise<Activity[]> {
+    return db.select().from(activities).orderBy(desc(activities.createdAt));
   }
 
   async getLeaderboard(): Promise<User[]> {

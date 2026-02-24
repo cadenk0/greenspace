@@ -1,7 +1,7 @@
 /**
  * auth.ts
  *
- * This file contains authentication logic for the server.
+ * Handles authentication routes and session creation with Passport.
  */
 import passport from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
@@ -22,6 +22,7 @@ declare global {
 const scryptAsync = promisify(scrypt);
 const MemoryStore = createMemoryStore(session);
 
+// Returns password hash and salt
 async function hashPassword(password: string) {
   const salt = randomBytes(16).toString("hex");
   const buf = (await scryptAsync(password, salt, 64)) as Buffer;
@@ -56,6 +57,9 @@ export function setupAuth(app: Express) {
   app.use(passport.initialize());
   app.use(passport.session());
 
+  /**
+   * When a user logs in, passport-local will use this strategy to authenticate.
+   */
   passport.use(
     new LocalStrategy(async (username, password, done) => {
       try {
@@ -81,6 +85,9 @@ export function setupAuth(app: Express) {
     }
   });
 
+  /**
+   * Creates a new user and logs them in.
+   */
   app.post("/api/register", async (req, res, next) => {
     try {
       const existingUser = await storage.getUserByUsername(req.body.username);
@@ -92,9 +99,8 @@ export function setupAuth(app: Express) {
       const user = await storage.createUser({
         username: req.body.username,
         name: req.body.name,
-        phone_number: req.body.phone_number,
-        password: hashedPassword,
-        green_score: 0
+        phoneNumber: req.body.phoneNumber,
+        password: hashedPassword
       });
 
       req.login(user, (err) => {
@@ -106,10 +112,18 @@ export function setupAuth(app: Express) {
     }
   });
 
+  /**
+   * Login route. Uses passport-local strategy to authenticate user.
+   * If authentication is successful, the user is logged in - that is,
+   * a session is created - and the user's information is returned.
+   */
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     res.status(200).json(req.user);
   });
 
+  /**
+   * Logout route. This ends the user's session.
+   */
   app.post("/api/logout", (req, res, next) => {
     req.logout((err) => {
       if (err) return next(err);
@@ -117,6 +131,9 @@ export function setupAuth(app: Express) {
     });
   });
 
+  /**
+   * Get current user information.
+   */
   app.get("/api/user", (req, res) => {
     if (!req.isAuthenticated()) return res.sendStatus(401);
     res.json(req.user);

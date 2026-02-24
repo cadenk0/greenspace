@@ -10,10 +10,15 @@ import NotFound from "@/pages/not-found";
 import AuthPage from "@/pages/AuthPage";
 import ProfilePage from "@/pages/ProfilePage";
 import LeaderboardPage from "@/pages/LeaderboardPage";
+import Community from "@/pages/community";
 import ActionPage from "@/pages/ActionPage";
 
 // Protected Route Wrapper
-function ProtectedRoute({ component: Component }: { component: React.ComponentType }) {
+function ProtectedRoute({
+  component: Component,
+}: {
+  component: React.ComponentType;
+}) {
   const { data: user, isLoading } = useUser();
 
   if (isLoading) {
@@ -35,16 +40,17 @@ function Router() {
   return (
     <Switch>
       <Route path="/auth" component={AuthPage} />
-      
+
       {/* Protected Routes */}
-      <Route path="/">
-        {() => <ProtectedRoute component={ProfilePage} />}
-      </Route>
+      <Route path="/">{() => <ProtectedRoute component={ProfilePage} />}</Route>
       <Route path="/leaderboard">
         {() => <ProtectedRoute component={LeaderboardPage} />}
       </Route>
       <Route path="/action">
         {() => <ProtectedRoute component={ActionPage} />}
+      </Route>
+      <Route path="/community">
+        {() => <ProtectedRoute component={Community} />}
       </Route>
 
       {/* Fallback */}

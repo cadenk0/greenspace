@@ -41,7 +41,7 @@ export default function ActionPage() {
           setCaption("");
           setLocation("/");
         },
-      }
+      },
     );
   };
 
@@ -54,13 +54,22 @@ export default function ActionPage() {
 
   return (
     <div className="min-h-screen bg-background pb-20 flex flex-col">
-      <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-md border-b border-border/50 px-6 py-4">
-        <h1 className="text-xl font-display font-bold text-center">New Green Action</h1>
+      <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-md border-b border-border/50 px-6 py-4 flex items-center justify-between">
+        <div className="inline-flex items-center justify-center w-16 h-16">
+          <img
+            src="/GreenspaceLogo.png"
+            alt="Greenspace Logo"
+            className="w-15 h-15 object-contain"
+          />
+        </div>
+        <h1 className="absolute left-1/2 -translate-x-1/2 text-xl font-display font-bold">New Green Action</h1>
       </header>
 
       <main className="flex-1 max-w-md mx-auto w-full p-6 flex flex-col">
-        <form onSubmit={handleSubmit} className="flex-1 flex flex-col space-y-6">
-          
+        <form
+          onSubmit={handleSubmit}
+          className="flex-1 flex flex-col space-y-6"
+        >
           {/* File Upload Area */}
           <div className="flex-1 min-h-[300px] relative group cursor-pointer">
             <div
@@ -69,12 +78,12 @@ export default function ActionPage() {
                 isDragActive
                   ? "border-primary bg-primary/5 scale-[1.02]"
                   : preview
-                  ? "border-transparent"
-                  : "border-muted-foreground/30 bg-muted/20 hover:bg-muted/30"
+                    ? "border-transparent"
+                    : "border-muted-foreground/30 bg-muted/20 hover:bg-muted/30"
               }`}
             >
               <input {...getInputProps()} />
-              
+
               <AnimatePresence mode="wait">
                 {preview ? (
                   <motion.div
@@ -111,9 +120,12 @@ export default function ActionPage() {
                       <Camera className="w-10 h-10" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-foreground">Upload Photo</h3>
+                      <h3 className="text-lg font-bold text-foreground">
+                        Upload Photo
+                      </h3>
                       <p className="text-sm text-muted-foreground mt-1 max-w-[200px] mx-auto">
-                        Snap a picture of your green activity (recycling, planting, etc.)
+                        Snap a picture of your green activity (recycling,
+                        planting, etc.)
                       </p>
                     </div>
                   </motion.div>
@@ -145,18 +157,12 @@ export default function ActionPage() {
               {createActivity.isPending ? (
                 <>
                   <Loader2 className="w-6 h-6 animate-spin" />
-                  Analyzing Activity...
+                  Uploading
                 </>
               ) : (
-                <>
-                  <Sparkles className="w-5 h-5" />
-                  Verify & Earn Points
-                </>
+                <>Show off your Green</>
               )}
             </button>
-            <p className="text-center text-xs text-muted-foreground mt-4">
-              AI will analyze your photo to verify the activity.
-            </p>
           </div>
         </form>
       </main>

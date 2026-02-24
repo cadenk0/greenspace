@@ -29,11 +29,6 @@ export function StatCard({ label, value, icon, className, trend }: StatCardProps
           <h3 className="text-3xl font-display font-bold text-foreground">
             {value}
           </h3>
-          {trend === "up" && (
-            <span className="text-xs font-bold text-primary mb-1.5 bg-primary/10 px-1.5 py-0.5 rounded-full">
-              +12%
-            </span>
-          )}
         </div>
       </div>
     </div>
