@@ -1,2 +1,4 @@
 # How to Deploy
 Because this project uses Replit integrations, it must specifically be deployed on a Replit server. Copy this project to Replit, and start the Vite development server with 'npm run dev'.
+
+Devpost: https://devpost.com/software/greenspace-myh31p
